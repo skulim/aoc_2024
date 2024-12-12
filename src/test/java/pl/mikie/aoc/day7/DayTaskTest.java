@@ -33,6 +33,6 @@ public class DayTaskTest {
 		long result = aocDayTask.part2();
 		
 		Assertions.assertNotNull(result);
-		Assertions.assertEquals(6, result);
+		Assertions.assertEquals(11387, result);
 	}
 }

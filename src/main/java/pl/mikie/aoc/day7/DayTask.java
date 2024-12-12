@@ -23,18 +23,21 @@ public class DayTask implements AOCDayTask {
 	public long part1() {
 		return calibrationEquations.stream()
 				.mapToLong(
-						e -> calculate(e.result(), e.numbers().get(0), 1, e.numbers()))
+						e -> calculate(e.result(), e.numbers().get(0), 1, e.numbers(), false))
 				.sum();
 	}
 
 	@Override
 	public long part2() {
-		return 0;
+		return calibrationEquations.stream()
+				.mapToLong(
+						e -> calculate(e.result(), e.numbers().get(0), 1, e.numbers(), true))
+				.sum();
 	}
 
 	record OperatorWithResult (long result, boolean multiply) {};
 	
-    private long calculate(long result, long partResult, int numberIndex, List<Long> numbers) {
+    private long calculate(long result, long partResult, int numberIndex, List<Long> numbers, boolean useConcat) {
 		if( partResult > result ) {
 			return 0;
 		}
@@ -43,11 +46,16 @@ public class DayTask implements AOCDayTask {
 			return partResult==result ? result : 0;
 		}
 
-    	long partResultWithAdd = calculate(result, partResult + numbers.get(numberIndex), numberIndex+1, numbers);
+    	long partResultWithAdd = calculate(result, partResult + numbers.get(numberIndex), numberIndex+1, numbers, useConcat);
     	
-    	long partResultWithMul = calculate(result, partResult * numbers.get(numberIndex), numberIndex+1, numbers);
+       	long partResultWithMul = calculate(result, partResult * numbers.get(numberIndex), numberIndex+1, numbers, useConcat);
+       	
+       	long partResultWithConcat = 0;
+       	if(useConcat) {
+       		partResultWithConcat = calculate(result, Long.valueOf("" + partResult + numbers.get(numberIndex)), numberIndex+1, numbers, useConcat);
+       	}
 		
-		if(partResultWithAdd==result || partResultWithMul==result) {
+		if(partResultWithAdd==result || partResultWithMul==result || partResultWithConcat==result) {
 			return result;
 		}
 		return 0;
