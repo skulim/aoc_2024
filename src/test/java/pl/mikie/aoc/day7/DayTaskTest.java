@@ -1,4 +1,4 @@
-package pl.mikie.aoc.day6;
+package pl.mikie.aoc.day7;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +15,7 @@ public class DayTaskTest {
 	@SneakyThrows
 	@BeforeAll
 	public static void beforeAll() {
-		inputData = DayTaskTestUtils.loadInputData("6");
+		inputData = DayTaskTestUtils.loadInputData("7");
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class DayTaskTest {
 		long result = aocDayTask.part1();
 		
 		Assertions.assertNotNull(result);
-		Assertions.assertEquals(41, result);
+		Assertions.assertEquals(3749, result);
 	}
 	
 	@Test

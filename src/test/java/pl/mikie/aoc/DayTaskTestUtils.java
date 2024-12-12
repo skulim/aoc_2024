@@ -1,4 +1,4 @@
-package pl.mikie.aoc.day6;
+package pl.mikie.aoc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
