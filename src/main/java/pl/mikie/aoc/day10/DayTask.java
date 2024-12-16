@@ -41,7 +41,7 @@ public class DayTask implements AOCDayTask {
 				.sum();
 	}
 
-	// returns how many 9 has been reached
+	// returns how many 9 has been reached, if withRating is true only distinguish will be count
 	private long nextMove(final Coords point, int nextNumber, boolean withRating) {
 		if (map[point.x][point.y] == nextNumber) {
 			if (nextNumber == 9) {
