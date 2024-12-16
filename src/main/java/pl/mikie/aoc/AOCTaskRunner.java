@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import pl.mikie.aoc.day7.DayTask;
+import pl.mikie.aoc.day10.DayTask;
 
 public class AOCTaskRunner {
 
